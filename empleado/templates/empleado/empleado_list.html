@@ -1,0 +1,33 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Lista de Empleados</h2>
+{% if user.is_authenticated %}
+<a class="card_custom" href="{% url 'empleado:empleado-add' %}">Crear nuevo Empleado</a>
+{% endif %}
+<hr></hr>
+<ul>
+    {% for empleado in empleado_list %}
+    <li>
+        {{empleado}}
+        (
+            <a href="{% url 'empleado:empleado-detail' empleado.id %}">
+                <i class="fa fa-eye" style="color: rgb(0, 0, 255);"> </i>
+            </a>
+        {% if user.is_authenticated %}
+        |
+        <a href="{% url 'empleado:empleado-update' empleado.id %}">
+            <i class="fa fa-pencil" style="color: rgb(0, 0, 190);"> </i>
+        </a>
+        |
+        <a href="{% url 'empleado:empleado-delete' empleado.id %}">
+            <i class="fa fa-trash" style="color: rgb(0, 0, 100);"> </i>
+        </a>
+        {% endif %}
+        )
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,3 @@
+Este proyecto esta creado para una empresa de Climatizacion, 
+El mismo cuenta con distintas opciones para un optimo control de reclamos en el sector de Aires acondicionado.
+Fue realizado por Juan Freytes

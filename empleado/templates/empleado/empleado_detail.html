@@ -1,0 +1,11 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Detalle del Empleado</h2>
+<hr></hr>
+<p><h3>Empleado: {{ empleado.nombre }} {{ empleado.apellido }}</h4></p>
+<p><h4>Telefono: {{ empleado.telefono }}</h4></p>
+<p><h5>Grupo: {{ empleado.grupo }}</h5></p>
+<p><a class="btn2 btn-primary" href="{% url 'empleado:empleado-list' %}">Regresar a la lista de Empleados</a></p>
+{% endblock %}

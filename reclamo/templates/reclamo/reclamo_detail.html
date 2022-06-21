@@ -1,0 +1,14 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Detalle del Reclamo</h2>
+<hr></hr>
+<p><h3>Reclamo: {{ reclamo.nombre }}</h3></p>
+<p><h4>Telefono : {{ reclamo.telefono }}</h4></p>
+<p><h4>Fecha : {{ reclamo.fecha }}</h4></p>
+<p><h4>Planta/Sector : {{ reclamo.planta }}</h4></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ reclamo.descripcion }}</textarea></p>
+<p><a class="btn2 btn-primary" href="{% url 'reclamo:reclamo-list' %}">Regresar a la lista de reclamos</a></p>
+{% endblock %}

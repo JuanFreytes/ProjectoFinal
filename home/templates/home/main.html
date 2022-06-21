@@ -5,18 +5,18 @@
 
 {% if user.is_authenticated %}
 <div class="text-center">
-    <h2>Bienvenido {{ user.username }}</h2>
-    <h3><a style="color: rgb(3, 36, 184)" href="{% url 'user:avatar-load' %}">Cambiar Avatar</a></h3>
+    <h3>{{ user.username }}</h3>
+    <h3><a style="color: rgb(3, 36, 184)" href="{% url 'user:avatar-load' %}">Cambiar Img Perfil</a></h3>
     <img height="160px" src="{{url}}" alt="">
 </div>
 {% endif %}
-<h2>Buscador de cursos</h2>
+<h2>Buscador de reclamos</h2>
 <hr>
 </hr>
 
 <form action="/search" method="GET">
     <div>
-        <input type="text" name="search_param" id="course_code_or_name" placeholder="Buscar.."
+        <input type="text" name="search_param" id="reclamo_code_or_name" placeholder="Buscar.."
         {% if search_param %} value="{{ search_param }}" {% endif %}
         >
         <input type="submit" value="Buscar">
@@ -29,12 +29,12 @@
 </hr>
 
 
-{% if courses %}
+{% if reclamos %}
 <ul>
-    {% for course in courses %}
+    {% for reclamo in reclamos %}
     <li>
-        Curso: {{course.name}}
-        -- Camada: {{course.code}}
+        Nombre: {{reclamo.nombre}}
+        -- Telefono: {{reclamo.telefono}}
     </li>
     {% endfor %}
 </ul>

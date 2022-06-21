@@ -1,0 +1,29 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Controles de Servicio</h2>
+<a class="card_custom" href="{% url 'control:control-add' %}">Realizar control de Servicio</a>
+    
+    
+</a>
+<hr></hr>
+<ul>
+    {% for control in controles %}
+        <li>
+            Nombre del Responsable: {{control.name}}
+            -- Fecha: {{control.due_date}}
+            -- Estan todos los reclamos resueltos:
+                {% if control.is_delivered %}
+                    Si
+                {% else %}
+                    No
+                {% endif%}
+            
+<a href="{% url 'control:control-delete' control.id %}">
+    <i class="fa fa-trash" style="color: rgb(0, 0, 100);"></i>                    
+            </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
